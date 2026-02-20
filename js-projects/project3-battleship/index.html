@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css">
+    <title>BattleShip</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Battleship</h1>
+      <div id="rules">
+        <h3>Game Rules</h3>
+        <p>1.Click on the cells to reveal the image hidden behind them.</p>
+        <p>2.There are 5 ships hidden in the game.</p>
+        <p>
+          3.You win if you can find all ships in less than 8 clicks, else you
+          lose.
+        </p>
+      </div>
+      <div id="grid">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+      <button id="reset-btn">Reset</button>
+      <dialog class="hidden">
+        <p id="game-result">You Won!!!</p>
+        <button>OK</button>
+      </dialog>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
