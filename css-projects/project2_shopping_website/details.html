@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details Page</title>
+    <style>
+          *{
+            padding: 0;
+            margin:0;
+            box-sizing:border-box;
+            text-decoration: none;
+        }
+        body{ 
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: 'Arial',sans-serif;
+        }
+        header{
+            width:100%;
+            background-color: #2c3e50;
+            display: flex;
+            height: 10vh;
+            padding: 15px 10px;  
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        #search{
+            padding-top: 10px;
+            padding-left: 15px;
+            font-size: small;
+            border-radius: 5px;
+        }
+        #search-section{
+            width:15vw;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            width:15%;
+             & a{
+                text-decoration: none;
+                color: white;
+                
+            }
+            & a:hover{
+                text-decoration: underline;
+            }
+        }
+        main{
+            margin: 20px;
+            background-color: #fff;
+            display: flex;
+            height: 100vh;
+            justify-content: space-between;
+            padding: 40px;
+        }
+        #content{
+            width: 45vw;
+            padding: 55px;
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+            & h1{
+                font-size:3rem;
+                color: #2c3e50;
+            }
+            & p{
+                font-size:1rem ;
+                color: #555;
+            }
+
+        }
+        #image-container{
+            width: 50vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap:5px;
+            & img{
+                border-radius:10px ;
+            }
+        }
+        #sizes{
+            width: auto;
+            height: auto;
+            display: grid;
+            grid-row: 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+        }
+        #sizes button{
+            font-weight: bold;
+            padding:8px 15px ;
+            background-color: red#f5f5f5;
+            &:hover{
+                background-color: #3498db;
+                color: white;
+            }
+        }
+        #cart button{
+            /* background-color: red; */
+            padding:14px 25px;
+            border-radius: 25px;
+            &:first-child{
+                background-color: #e74c3c;
+                color: white;
+                &:hover{
+                    background-color: #c0392b;
+                }
+            }
+            &:last-child{
+                background-color: #f5f5f5;
+                color: #e74c3c;
+                &:hover{
+                background-color: #e74c3c;
+                color: #f5f5f5;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>SNEAKERZONE</h1>
+        <nav>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Kids</a>
+        </nav>
+        <div id="search-section">
+            <input id="search" type="text" placeholder="Search">🛒
+        </div>
+        </header>
+        <main>
+
+        <div id="image-container">
+            <img width="350" height="350" src="https://ik.imagekit.io/d9mvewbju/Course/BigbinaryAcademy/shoe7-larger-a_Ux2ekfF45.jpg?updatedAt=1728893954940" alt="shoe2_img1.1">
+            <img width="350" height="350" src="https://ik.imagekit.io/d9mvewbju/Course/BigbinaryAcademy/shoe7-larger-b_dv1lRR_EA.jpg?updatedAt=1728893902496" alt="shoe2_img1.1">
+        </div>
+
+        <div id="content">
+            <h1>Action Hyper High Side View</h1>
+            
+                <p>Men's Shoes</p>
+                <p>
+                    MRP:₹ 13995
+                </p>
+
+            <div>
+                <h3>Select Size</h3>
+                <div id="sizes">
+                    <button>UK 10</button>
+                    <button>UK 10.5</button>
+                    <button>UK 6</button>
+                    <button>UK 11</button>
+                    <button>UK 9.5</button>
+                    <button>UK 11.5</button>
+                </div>
+            </div>
+            <div id="cart">
+                <button>Add to Bag</button>
+                <button>Favourite ♥</button>
+            </div>
+        </div>
+        </main>
+</body>
+</html>

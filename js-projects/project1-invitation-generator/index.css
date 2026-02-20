@@ -1,0 +1,138 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  width: 100vw;
+
+  background-image: linear-gradient(to right, #2c3e50, #3498db);
+  color: #333;
+}
+main {
+  height: 100%;
+  width: 100%;
+}
+#form {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  width: 40%;
+  min-height: 75%;
+  padding: 25px 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 20px 3px gray;
+}
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 5px;
+}
+.input {
+  padding: 14px 10px;
+  border: 1px solid #0d47a1;
+
+  border-radius: 10px;
+}
+h1 {
+  color: #0d47a1;
+  font-weight: bold;
+  text-align: center;
+}
+button {
+  margin-top: 15px;
+  padding: 15px 0px;
+
+  background-image: linear-gradient(to right, orange, #ff6b00);
+  border-radius: 999px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+}
+label {
+  color: #0d47a1;
+  font-weight: bold;
+}
+textarea {
+  resize: none;
+}
+#dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+  height: 20vh;
+  width: 30vw;
+
+  color: white;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-image: linear-gradient(to right,#578ED0,#8151AB);
+}
+.hidden {
+  display: none;
+}
+.visible {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#close-dialog {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  color: red;
+  font: 20px bold;
+  cursor: pointer;
+}
+.centered {
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+#invitation {
+  position: absolute;
+
+  flex-direction: column;
+  gap:20px;
+  min-height: 50vh;
+  width: 40vw;
+  padding: 20px;
+  background-color: gray;
+  outline: auto red;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 20px 3px gray;
+
+  & h1{
+    color: red;
+  }
+  & h3{
+    font-weight: 300;
+  }
+  & h2{
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  & p{
+    align-self: flex-start;
+    &:first-of-type{
+      font-weight: bold;
+      color: red;
+    }
+  }
+
+}

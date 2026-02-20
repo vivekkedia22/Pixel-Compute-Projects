@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      #main {
+        width: 100vw;
+      }
+      body {
+        background-color: #0d161b;
+        font-family: "Lato", sans-serif;
+        position: relative;
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+      }
+      aside {
+        display: hidden;
+      }
+      #intro {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        & p {
+          &:first-of-type {
+            color: #c5c5a5;
+            font-size: larger;
+          }
+        }
+      }
+      #pfp {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+      }
+      header {
+        color: white;
+        height: 50px;
+        position: relative;
+        & svg {
+          height: 40px;
+          width: 40px;
+          position: absolute;
+          left: 0;
+          color: #c5c5a5;
+        }
+      }
+      #my-work {
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5rem;
+        & h1 {
+          color: white;
+          margin-bottom: 10px;
+        }
+        & a{
+          text-decoration: none;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+      .work-card {
+        background-color: #0d2e3d;
+        display: flex;
+        flex-direction: column;
+        height: max-content;
+        width: 90%;
+        border-radius: 15px;
+        padding: 15px;
+        & img {
+          height: 25vh;
+        }
+      }
+      .work-description {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        & p {
+          color: white;
+          &:first-child {
+            font-size: 2rem;
+            font-weight: bold;
+          }
+        }
+        & a {
+          color: #c5c5a5;
+        }
+      }
+      #writings {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        & h1 {
+          color: white;
+          margin-bottom: 10px;
+        }
+      }
+      #writing-card-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 90%;
+      }
+      .writing-card {
+        background-color: #0d2e3d;
+        border-radius: 15px;
+        padding: 10px;
+        & > img {
+          height: 23vh;
+          border-radius: 15px;
+        }
+        p {
+          &:first-child {
+            font-size: 1.5rem;
+            color: white;
+            font-weight: bold;
+          }
+          &.time-to-read {
+            text-align: start;
+            margin-top: 5px;
+            margin-left: 15px;
+            color: white;
+          }
+        }
+      }
+      .writing-author {
+        width: max-content;
+        margin-top: 5px;
+        margin-left: 15px;
+        display: flex;
+        gap: 10px;
+        color: white;
+        & img {
+          height: 1.3rem;
+          width: 1.3rem;
+          border-radius: 50%;
+        }
+      }
+      .view-all {
+        position: relative;
+        margin: auto;
+        margin-top: 15px;
+        width: max-content;
+        background-color: transparent;
+        padding: 4px 14px;
+        font-size: 1.2rem;
+        border-radius: 8px;
+        color: #c5c5a5;
+        border: solid 1px #c5c5a5;
+        font-weight: 100;
+      }
+      .view-all:hover{
+        background-color: antiquewhite;
+      }
+      #contact {
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        color: white;
+        margin-top: 15px;
+        padding: 10px;
+        gap: 15px;
+      }
+      footer {
+        color: #c5c5a5;
+        margin-top: 10px;
+        & p {
+          font-size: 1.2em;
+          font-weight: bold;
+          margin: 10px;
+        }
+        & ul {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          list-style-type: none;
+          & li a {
+            font-size: 1em;
+            color: #c5c5a5;
+          }
+        }
+      }
+      aside {
+        display: none;
+      }
+      @media screen and (min-width: 800px) {
+        body{
+            padding-left: 0;
+            padding-top: 0;
+        }
+        header {
+          display: none;
+        }
+        #intro{
+          padding-top: 50px;
+          display: flex;
+          padding-left: 10px;
+          align-items: start;
+          & img{
+            display: none;
+          }
+        }
+        #main {
+          width: 80vw;
+          position: relative;
+          /* right:0px; */
+          left: 100%;
+          transform: translateX(-100%);
+        }
+        #my-work {
+          padding: 20px;
+          align-items: flex-start;
+        }
+        .work-card {
+          overflow: hidden;
+          width: 85%;
+          display: flex;
+          flex-direction: row;
+          padding: 0;
+          & .work-description {
+            padding: 15px 25px;
+            align-items: start;
+            justify-content: space-around;
+          }
+          & p{
+            text-align: start;
+          }
+        }
+        #writings {
+          padding: 20px;
+          align-items: flex-start;
+          & h1 {
+            text-align: left;
+          }
+        }
+        #writing-card-container {
+          display: flex;
+          flex-direction: row;
+          gap: 2rem;
+        }
+        .writing-card {
+          width: 25vw;
+          line-height: 2rem;
+          /* padding: */
+          & >img{
+            width: 95%;
+          }
+        }
+        footer {
+          width: 80vw;
+          position: relative;
+          left: 100%;
+          transform: translateX(-100%);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          & p {
+            align-self: center;
+            width: max-content;
+            /* margin: auto; */
+          }
+          & ul {
+            /* width:80vw; */
+            position: relative;
+            transform: translateX(-100%);
+            left: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
+          }
+        }
+        aside {
+          display: flex;
+          box-shadow: 1px 0px 10px 1px gray;
+          flex-direction: column;
+          height: 100vh;
+          position: fixed;
+          width: 15vw;
+          /* border-right: solid 1px gray; */
+          & nav ol {
+            padding: 30px 10px;
+            list-style-position: inside;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            & a {
+              text-decoration: none;
+              color: white;
+              width: 100%;
+              border-radius: 10px;
+              &:hover {
+                background-color: #0d2e3d;
+              }
+              & li {
+                cursor: pointer;
+                text-align: start;
+                padding: 5px;
+              }
+            }
+
+            & li::marker {
+              &::after {
+                content: "0";
+              }
+              color: white;
+              margin-right: 2px;
+            }
+          }
+        }
+        #sidebar-profile {
+          background-color: #0d2e3d;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          /* justify-content: center; */
+          align-items: center;
+          gap: 10px;
+          padding-bottom: 20px;
+          & p {
+            color: white;
+            font-size: smaller;
+            &:first-of-type {
+              font-size: large;
+              font-weight: 700;
+            }
+          }
+          & img {
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+          }
+        }
+        #icons{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 10px;
+            gap:10px
+        }
+        .icon img{
+            background-color: white;
+            color: white;
+            height: 40px;
+            width:40px;
+            padding:0 5px ;
+             
+        }
+        #git{
+                border-radius: 50%;
+            }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+        <path
+          fill="rgb(116, 155, 40)"
+          d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+        />
+      </svg>
+    </header>
+    <main>
+      <aside>
+        <div id="sidebar-profile">
+          <img
+            src="https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg"
+            alt="profile-image"
+          />
+          <p>Vivek Kumar Kedia</p>
+          <p>Web Developer</p>
+        </div>
+        <nav>
+          <ol>
+            <a href="#intro"><li>INTRO</li></a>
+            <a href="#my-work"><li>WORK</li></a>
+            <a href="#writings"><li>WRITINGS</li></a>
+            <a href="#contact"><li>CONTACT</li></a>
+          </ol>
+        </nav>
+        <div id="icons">
+          <a class="icon" href="#">
+            <img id="git" src="github.png" alt="" />
+          </a>
+          <a class="icon" href="#">
+            <img src="linkedin-logo.png" alt="" />
+          </a>
+          <a class="icon" href="#">
+            <img src="email.png" alt="" />
+          </a>
+        </div>
+      </aside>
+      <div id="main">
+        <div id="intro">
+          <img
+            id="pfp"
+            src="https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg"
+            alt="profile-image"
+          />
+          <p>Hello 👋 My name is Vivek</p>
+          <h1>I code beautiful Websites</h1>
+          <p>
+            I am a full stack developer based in India. Welcome to my portfolio.
+          </p>
+        </div>
+        <div id="my-work">
+          <h1>My work</h1>
+          <section class="work-card">
+            <img
+              src="https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg"
+              alt=""
+            />
+            <div class="work-description">
+              <p>Music Streaming App</p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Accusamus non reiciendis fuga cumque, labore adipisci explicabo!
+                Excepturi eum eligendi a magni accusamus? Similique inventore
+                sequi autem dignissimos iusto rem nisi.
+              </p>
+              <a href="#">view in neetocode ↗</a>
+            </div>
+          </section>
+          <section class="work-card">
+            <img
+              src="https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg"
+              alt=""
+            />
+            <div class="work-description">
+              <p>Music Streaming App</p>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Accusamus non reiciendis fuga cumque, labore adipisci explicabo!
+                Excepturi eum eligendi a magni accusamus? Similique inventore
+                sequi autem dignissimos iusto rem nisi.
+              </p>
+              <a href="#">view in neetocode ↗</a>
+            </div>
+          </section>
+          <button class="view-all">View All</button>
+        </div>
+        <div id="writings">
+          <h1>Writings</h1>
+          <div id="writing-card-container">
+            <section class="writing-card">
+              <img
+                src="https://webandcrafts.com/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FNode_js_Architecture_A_Comprehensive_Guide_1_af37a73e1e.png&w=4500&q=90"
+                alt=""
+              />
+              <div class="writing-card-content">
+                <p>My top 10 librarires used in nodejs</p>
+                <div class="writing-author">
+                  <img
+                    src="https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg"
+                    alt=""
+                  />
+                  <p>Vivek Kumar Kedia</p>
+                </div>
+                <p class="time-to-read">1 min read</p>
+              </div>
+            </section>
+            <section class="writing-card">
+              <img
+                src="https://webandcrafts.com/_next/image?url=https%3A%2F%2Fadmin.wac.co%2Fuploads%2FNode_js_Architecture_A_Comprehensive_Guide_1_af37a73e1e.png&w=4500&q=90"
+                alt=""
+              />
+              <div class="writing-card-content">
+                <p>My top 10 librarires used in nodejs</p>
+                <div class="writing-author">
+                  <img
+                    src="https://images.pexels.com/photos/414102/pexels-photo-414102.jpeg?cs=srgb&dl=pexels-pixabay-414102.jpg&fm=jpg"
+                    alt=""
+                  />
+                  <p>Vivek Kumar Kedia</p>
+                </div>
+                <p class="time-to-read">1 min read</p>
+              </div>
+            </section>
+          </div>
+          <button class="view-all">View All</button>
+        </div>
+        <div id="contact">
+          <h1>Get in touch with me</h1>
+          <p>
+            Have an opportunity for me to help you with anything? Feel free to
+            schedule a call with me
+          </p>
+          <button class="view-all">Book a Session</button>
+        </div>
+      </div>
+      <footer>
+        <p>Vivek Kumar Kedia</p>
+        <ul class="links">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Email</a></li>
+          <li><a href="#">Schedule a call</a></li>
+          <li><a href="#">Resume</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </footer>
+    </main>
+  </body>
+</html>

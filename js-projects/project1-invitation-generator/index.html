@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <form id="form">
+        <h1>Create and Event Invite</h1>
+        <div class="fields">
+          <label class="label" for="event-name">Event Name</label>
+          <input class="input" id="event-name" placeholder="Odisha JS Meetup" name="eventName" />
+        </div>
+        <div class="fields">
+          <label class="label" for="event-date">Event Date</label>
+          <input class="input" id="event-name" type="date" name="eventDate"/>
+        </div>
+        <div class="fields">
+          <label class="label" for="event-start-time">Start Time</label>
+          <input class="input" id="event-start-time" type="time" name="startTime"/>
+        </div>
+        <div class="fields">
+          <label class="label" for="event-end-time">End Time</label>
+          <input class="input" id="event-end-time" type="time" name="endTime"/>
+        </div>
+        <div class="fields">
+          <label class="label" for="event-description" >Event Description</label>
+          <textarea
+            class="input"
+            id="event-description"
+            placeholder="Brief description of the event"
+            name="description"
+          ></textarea>
+        </div>
+        <div class="fields">
+          <label class="label" for="event-location" >Location</label>
+          <input
+            class="input"
+            id="event-location"
+            placeholder="Location of the event"
+            name="location"
+          />
+        </div>
+        <button id="submit-btn" type="submit">Create Event</button>
+      </form>
+      <dialog class="hidden" id="dialog">Please fill all the fields<span id="close-dialog">X</span></dialog>
+      <div id="invitation" class="centered hidden">
+          <h1>YOU ARE INVITED</h1>
+          <h3>TO JOIN THE</h3>
+          <h2>Kerala JS Meet</h2>
+          <p>Date</p>
+          <p>time</p>
+          <p>Location</p>
+          <p>Description</p>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            padding: 0;
+            margin:0;
+            box-sizing:border-box;
+            text-decoration: none;
+        }
+        body{ 
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: 'Arial',sans-serif;
+        }
+        header{
+            width:100%;
+            background-color: #2c3e50;
+            display: flex;
+            height: 10vh;
+            padding: 15px 10px;  
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            width:15%;
+             & a{
+                text-decoration: none;
+                color: white;
+                
+            }
+            & a:hover{
+                text-decoration: underline;
+            }
+        }
+        aside ul{
+            list-style-type: none;
+        }
+        #search{
+            padding-top: 10px;
+            padding-left: 15px;
+            font-size: small;
+            border-radius: 5px;
+        }
+        #search-section{
+            width:15vw;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        main{
+            display: flex;
+            justify-content: space-around;
+            & aside{
+                padding: 10px;
+                width: max-content;
+                padding-top: 10px;
+                background-color: white;
+                box-shadow:rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                & ul{
+                    flex-direction: column;
+                    gap:10px;
+                }
+                & a{
+                    color:#3498db;
+                    font-size: 1.7rem;
+                    font-weight: bold;
+                }
+                & a:hover{
+                    color: #2980b9;
+                }
+            }
+            
+        }
+        #content{
+            margin-top: 20px;
+                padding:0 15px;
+                display: grid;
+                width: 80vw;
+                height: auto;
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                row-gap: 40px;
+            }
+            .card{
+                width: 22vw;
+                border-radius: 15px;
+                padding-left:10px ;
+                height: max-content;
+                padding: 10px 0px;
+                gap:10px;
+                background-color: white;
+                display: flex;
+                flex-direction: column  ;
+                justify-content: center;
+                align-items:center;
+                box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.2);
+                 transition:transform 0.3s;
+                & img{
+                    border-radius: 19px;
+                }
+                &  p{
+                    color:black;
+                    font-family: 'Arial',sans-serif;
+                    text-decoration: none;
+                }
+            }
+            .card:hover{
+                
+                    transform: scale(1.065);
+                    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+                
+            }
+    </style>
+    <title>Shopping Website</title>
+</head>
+<body>
+    <header>
+        <h1>SNEAKERZONE</h1>
+        <nav>
+            <a href="#">Men</a>
+            <a href="#">Women</a>
+            <a href="#">Kids</a>
+        </nav>
+        <div id="search-section">
+            <input id="search" type="text" placeholder="Search">🛒
+        </div>
+        </header>
+    
+        <main>
+            <aside>
+            <ul>
+                <li><a href="#">Lifestyle</a></li>
+                <li><a href="#">Basketball</a></li>
+                <li><a href="#">Jordan</a></li>
+                <li><a href="#">Skateboarding</a></li>
+            </ul>
+        </aside>
+            <div id="content">
+                <a href="details.html"><section class="card">
+                <img width="250" src="https://ik.imagekit.io/d9mvewbju/Course/BigbinaryAcademy/shoe-5_TI5N23Jma.jpg?updatedAt=1729781054625" alt="shoe1"> 
+                <p>AeroMax Flex</p>
+                <p>₹ 10,499</p>
+            </section></a>
+            <a href="details.html"><section class="card">
+                <img width="250" src="https://ik.imagekit.io/d9mvewbju/Course/BigbinaryAcademy/shoe-3_L2Ak1ha8Eq.jpg?updatedAt=1729781054564" alt="shoe2"> 
+                <p>AeroMax Flex</p>
+                <p>₹ 10,499</p>
+            </section></a>
+            <a href="details.html"><section class="card">
+                <img width="250" src="https://ik.imagekit.io/d9mvewbju/Course/BigbinaryAcademy/shoe-1__X1F5iDi5I.jpg?updatedAt=1729781054468" alt="shoe3"> 
+                <p>AeroMax Flex</p>
+                <p>₹ 10,499</p>
+            </section></a>
+            <a href="details.html"><section class="card">
+                <img width="250" src="https://ik.imagekit.io/d9mvewbju/Course/BigbinaryAcademy/shoe-4_vBwVHSEFxK.jpg?updatedAt=1729781054508" alt="shoe4"> 
+                <p>AeroMax Flex</p>
+                <p>₹ 10,499</p>
+            </section></a>
+            <a href="details.html"><section class="card">
+                <img width="250" src="https://ik.imagekit.io/d9mvewbju/Course/BigbinaryAcademy/shoe-2_Tkv8dXUKvi.jpg?updatedAt=1729781054313" alt="shoe5"> 
+                <p>AeroMax Flex</p>
+                <p>₹ 10,499</p>
+            </section></a>
+            <a href="details.html"><section class="card">
+                <img width="250" src="https://ik.imagekit.io/d9mvewbju/Course/BigbinaryAcademy/shoe7_j0ZgFj32j.jpg?updatedAt=1728889629384" alt="shoe6"> 
+                <p>AeroMax Flex</p>
+                <p>₹ 10,499</p>
+            </section></a>
+            </div>
+        </main>
+    </header>
+</body>
+</html>
