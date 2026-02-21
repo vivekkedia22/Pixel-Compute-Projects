@@ -34,7 +34,7 @@ const createImageElement = () => {
     noOfShipsPut++;
   }
   img.style.cssText = "height:100%;width:100%";
-  // img.style.opacity = 0;
+  img.style.opacity = 0;
   return img;
 };
 
