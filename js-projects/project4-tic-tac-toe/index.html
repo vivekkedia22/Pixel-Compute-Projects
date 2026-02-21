@@ -4,55 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-    <style>
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
-        border: 0;
-      }
-      body {
-        height: 100vh;
-        width: 100vw;
-        padding: 20px;
-
-        background-color: #ff7700;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
-        background-attachment: fixed;
-        background-size: cover;
-      }
-      #container {
-        position: relative;
-        height: 80%;
-        width: 50%;
-        margin: auto;
-
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        justify-content: center;
-        align-items: center;
-      }
-      .game-container {
-        height: 90%;
-        width: 70%;
-
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr;
-        gap: 20px;
-      }
-      .cell {
-        background-color: white;
-        border: 3px solid black;
-      }
-    </style>
+    <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <div id="container">
       <h1>Tic-Tac-Toe</h1>
       <div class="game-container">
+        <div class="cell" data-number="0"></div>
         <div class="cell" data-number="1"></div>
         <div class="cell" data-number="2"></div>
         <div class="cell" data-number="3"></div>
@@ -61,27 +19,10 @@
         <div class="cell" data-number="6"></div>
         <div class="cell" data-number="7"></div>
         <div class="cell" data-number="8"></div>
-        <div class="cell" data-number="9"></div>
       </div>
+      <h1 class="game-message">O Player's Turn</h1>
+      <button id="reset-btn">Reset</button>
     </div>
-    <script>
-      let xPlayerTurn = false;
-      const cells = document.getElementsByClassName("cell");
-      const values = new Array(new Array(3), new Array(3), new Array(3));
-      for (let cell of cells) {
-        cell.onclick = () => {
-        //   console.log("cell clicked");
-          const num = cell.dataset.number;
-          const i = Math.floor(num / 3);
-          const j = (num % 3);
-        //   console.log(i)
-        //   console.log(j)
-          cell.innerText = xPlayerTurn ? "X" : "O";
-          values[i][j] = xPlayerTurn ? "X" : "O";
-          console.log(values)
-          xPlayerTurn = !xPlayerTurn;
-        };
-      }
-    </script>
+    <script src="index.js"></script>
   </body>
 </html>

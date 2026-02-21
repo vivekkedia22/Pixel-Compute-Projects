@@ -1,6 +1,7 @@
 const cells = document.querySelectorAll(".cell");
 const resetBtn = document.getElementById("reset-btn");
 const gameResult = document.getElementById("game-result");
+const grid = document.getElementById("grid");
 let noOfShipsPut = 0;
 let noOfWaterPut = 0;
 
@@ -39,31 +40,30 @@ const createImageElement = () => {
 };
 
 const addEvent = () => {
-  for (let cell of cells) {
-    cell.onclick = () => {
-      if (Number(cell.dataset.isClicked)) {
-        console.log("Already Clicked");
-        return;
-      }
-      cell.dataset.isClicked = 1;
-      const img = cell.firstChild;
-      img.style.opacity = 100;
-      if (img.dataset.type == "ship") {
-        noOfShipsSelected++;
-      }
-      noOfMoves--;
-      console.log("noOfMoves", noOfMoves);
-      console.log("noOfSHips", noOfShipsPut);
+  grid.onclick = (event) => {
+    const cell = event.target.parentElement;
+    if (Number(cell.dataset.isClicked)) {
+      console.log("Already Clicked");
+      return;
+    }
+    cell.dataset.isClicked = 1;
+    const img = cell.firstChild;
+    img.style.opacity = 100;
+    if (img.dataset.type == "ship") {
+      noOfShipsSelected++;
+    }
+    noOfMoves--;
+    console.log("noOfMoves", noOfMoves);
+    console.log("noOfSHips", noOfShipsPut);
 
-      if (noOfMoves === 0 || noOfShipsSelected === 5) {
-        dialog.showModal();
-        dialog.classList.remove("hidden");
-        dialog.classList.add("absolute");
-        gameResult.innerText =
-          noOfShipsSelected === 5 ? "You Won!!!🥇" : "You Lost!!!😞";
-      }
-    };
-  }
+    if (noOfMoves === 0 || noOfShipsSelected === 5) {
+      dialog.showModal();
+      dialog.classList.remove("hidden");
+      dialog.classList.add("absolute");
+      gameResult.innerText =
+        noOfShipsSelected === 5 ? "You Won!!!🥇" : "You Lost!!!😞";
+    }
+  };
 };
 
 const dialog = document.querySelector("dialog");
@@ -95,14 +95,15 @@ dialogBtn.onclick = () => {
   resetGame();
 };
 const resetGame = () => {
-  
   noOfShipsPut = 0;
   noOfWaterPut = 0;
   noOfMoves = 8;
   noOfShipsSelected = 0;
-  
+
   removeImages();
   putImages();
 };
+
 putImages();
+
 addEvent();
