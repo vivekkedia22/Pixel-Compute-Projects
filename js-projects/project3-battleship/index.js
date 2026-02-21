@@ -14,28 +14,35 @@ const waterUrl =
 const createImageElement = () => {
   const img = document.createElement("img");
   const randomGuess = Math.floor(Math.random() * 2);
+  console.log("this is the random guess", randomGuess);
+  console.log("this is the noOfShipsPut", noOfShipsPut);
+  console.log("this is the waterput", noOfWaterPut);
   if (randomGuess == 0 && noOfShipsPut < 5) {
     img.setAttribute("src", shipImgUrl);
     img.setAttribute("alt", "ship");
     img.dataset.type = "ship";
     noOfShipsPut++;
-  } else {
+  } else if (noOfWaterPut < 11) {
     img.setAttribute("src", waterUrl);
     img.setAttribute("alt", "water");
     img.dataset.type = "water";
     noOfWaterPut++;
+  } else if (noOfShipsPut < 5) {
+    img.setAttribute("src", shipImgUrl);
+    img.setAttribute("alt", "ship");
+    img.dataset.type = "ship";
+    noOfShipsPut++;
   }
   img.style.cssText = "height:100%;width:100%";
-  img.style.opacity = 0;
+  // img.style.opacity = 0;
   return img;
 };
 
 const addEvent = () => {
   for (let cell of cells) {
     cell.onclick = () => {
-      console.log("this is for the isclicked::", typeof cell.dataset.isClicked);
       if (Number(cell.dataset.isClicked)) {
-        console.log(cell.dataset.isClicked);
+        console.log("Already Clicked");
         return;
       }
       cell.dataset.isClicked = 1;
@@ -88,12 +95,14 @@ dialogBtn.onclick = () => {
   resetGame();
 };
 const resetGame = () => {
+  
   noOfShipsPut = 0;
-  removeImages();
-  putImages();
   noOfWaterPut = 0;
   noOfMoves = 8;
   noOfShipsSelected = 0;
+  
+  removeImages();
+  putImages();
 };
 putImages();
 addEvent();
