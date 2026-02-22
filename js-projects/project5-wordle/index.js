@@ -655,13 +655,12 @@ submitBtn.onclick = () => {
       isWordFound = false;
     }
   }
+  currentRow--;
   if (isWordFound) {
     gameMessage.innerText = "Congratulations you guessed the word";
     userInput.setAttribute("disabled", true);
     submitBtn.setAttribute("disabled", true);
-  }
-  currentRow--;
-  if (currentRow == 0) {
+  } else if (currentRow == 0) {
     gameMessage.innerText = `Game over, the word was "${selectedWord.join("")}"`;
     userInput.setAttribute("disabled", true);
     submitBtn.setAttribute("disabled", true);
