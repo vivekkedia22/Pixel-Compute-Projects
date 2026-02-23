@@ -77,8 +77,6 @@ select {
   align-items: center;
   gap: 10px;
 }
-#conversion-msg {
-}
 #error-msg {
   color: red;
 }
