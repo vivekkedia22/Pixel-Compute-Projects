@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="generator">
+        <h1>Password Generator</h1>
+
+        <!--Output section-->
+        <div id="output">
+          <input type="text" id="output-value" disabled value="" />
+          <button id="cpy-btn">Copy Password</button>
+          <p id="green-alert" class="alert green">
+            Password copied to Clipboard!
+          </p>
+        </div>
+
+        <!--Input Section  -->
+        <div id="input">
+          <div id="range">
+            <p>
+              Use the slider, and select from the options below to lengthen your
+              password and strengthen your security.Password Length(6-24)
+            </p>
+            <div id="slider">
+              <label for="password-length"> Total Characters: </label>
+              <input
+                id="password-length"
+                name="passwordLength"
+                type="range"
+                value="9"
+                min="6"
+                max="64"
+                on
+              />
+              <p id="length-label">9</p>
+            </div>
+          </div>
+
+          <input
+            type="checkbox"
+            name="options"
+            id="num"
+            value="num"
+            onchange="generatePassword()"
+          />
+          <label for="num">Include Numbers</label>
+          <input
+            type="checkbox"
+            name="options"
+            id="letter"
+            value="letter"
+            onchange="generatePassword()"
+          />
+          <label for="letter">Include Letters</label>
+          <input
+            type="checkbox"
+            name="options"
+            id="mixed"
+            value="mixed"
+            onchange="generatePassword()"
+          />
+          <label for="mixed">Include Mixed Case</label>
+          <input
+            type="checkbox"
+            name="options"
+            id="punc"
+            value="punct"
+            onchange="generatePassword()"
+          />
+          <label for="punc">Include Punctuation</label>
+          <p id="red-alert" class="alert red">
+            Please select at least one checkbox to generate a password.
+          </p>
+        </div>
+
+        <!-- info section -->
+      </div>
+      <div id="info">
+        <div id="info1">
+          <h3>Do you use any of these weak passwords?</h3>
+          <ul>
+            <li>Password</li>
+            <li>123456</li>
+            <li>Qwerty</li>
+            <li>Your name</li>
+          </ul>
+        </div>
+        <div id="info-2">
+          <h3>Why are those passwords weak?</h3>
+          <ul>
+            <li>They're easy to guess or crack.</li>
+            <li>
+              If one of your logins is compromised, a hacker can access all your
+              services.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
