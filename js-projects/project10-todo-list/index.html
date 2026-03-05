@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link href="index.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="main-container">
+      <header>To-Do List</header>
+      <form id="inputs">
+        <input type="text" id="task-desc" name="description" required />
+        <input type="date" id="due-date" name="dueDate" required />
+        <input type="time" id="due-time" name="dueTime" required />
+        <button type="submit" id="add-task-btn">Add Task</button>
+      </form>
+      <div id="list">
+        <div id="due-tasks">
+          <h1 id="due-tasks-heading">Due Tasks</h1>
+        </div>
+        <div id="upcoming-tasks">
+          <h1 id="upcoming-tasks-heading">Upcoming Tasks</h1>
+        </div>
+      </div>
+    </div>
+    <div id="edit-container"></div>
+    <script>
+      const something = document.querySelector("*");
+      console.log("this is text", something.inn);
+      const container = document.getElementById("container");
+      const inputForm = document.getElementById("inputs");
+      const dueTasks = document.getElementById("due-tasks");
+      const upcomingTasks = document.getElementById("upcoming-tasks");
+      const addTaskBtn = document.getElementById("add-task-btn");
+      const deleteBtn = document.querySelectorAll(".delete-task-btn");
+      const dueDateInput = document.getElementById("due-date");
+
+      addTaskBtn.onclick = (event) => onAddTask(event);
+      dueDateInput.setAttribute("min", new Date().toISOString().split("T")[0]);
+      let storedTasks = localStorage.getItem("todos");
+
+      let tasks = JSON.parse(storedTasks) ?? [];
+
+      const createListElement = ({ date, description, time }) => {
+        return `<h3 class="date">${new Date(date).toLocaleDateString()}</h3>
+            <div class="details">
+              <p class="description">${description} at<span class="time"> ${time}</span></p>
+                <div class="buttons">
+                    <button class="edit-task-btn" onclick="onEdit()">Edit</button>
+                    <button class="delete-task-btn" onclick="onDelete(event)">Delete</button>
+                </div>
+              </div>`;
+      };
+
+      const loadTasks = (() => {
+        tasks?.forEach((task) => {
+          console.log(task);
+          const newTodoHTML = createListElement({
+            date: task.dueDate,
+            time: task.dueTime,
+            description: task.description,
+          });
+          const list = document.createElement("div");
+          list.innerHTML = newTodoHTML;
+          list.classList.add("todo");
+          list.setAttribute("id", task.id);
+
+          if (new Date(task.dueDate) > new Date()) {
+            upcomingTasks.appendChild(list);
+          } else {
+            dueTasks.appendChild(list);
+          }
+        });
+      })();
+
+      const onAddTask = (event) => {
+        event.preventDefault();
+        const formData = new FormData(inputForm);
+        const description = formData.get("description");
+        const dueDate = formData.get("dueDate");
+        const dueTime = formData.get("dueTime");
+        if (!description || !dueDate || !dueTime) {
+          return;
+        }
+
+        const newTask = {
+          id: `${Math.floor(Math.random() * 20)}${tasks?.length}`,
+          description,
+          dueDate,
+          dueTime,
+        };
+        tasks?.push(newTask);
+        localStorage.setItem("todos", JSON.stringify(tasks));
+        location.reload();
+      };
+
+      const onEdit = (event) => {};
+
+      const onDelete = async (event) => {
+        console.log("clicked the delete buttons");
+        console.log(event.target.parentElement.parentElement.parentElement.id);
+        const taskId =
+          event.target.parentElement.parentElement.parentElement.id;
+        tasks = tasks.filter((task) => task.id !== taskId);
+        await localStorage.setItem("todos", JSON.stringify(tasks));
+        location.reload();
+      };
+    </script>
+  </body>
+</html>
